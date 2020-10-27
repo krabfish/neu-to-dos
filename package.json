@@ -1,10 +1,10 @@
 {
-  "name": " ",
-  "version": "0.0.1",
-  "description": "",
-  "keywords": "",
+  "name": "neu-to-dos",
+  "version": "1.0.0",
+  "description": "A simple browser-base To-Do app",
+  "keywords": ["html5", "css3", "javascript", "uuid"],
   "license": "",
-  "author": "",
+  "author": "Michael Neumann",
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
