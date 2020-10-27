@@ -60,4 +60,7 @@ summary {
   .flex-row {
     flex-direction: row !important;
   }
+  .divider {
+    visibility: visible !important;
+  }
 }

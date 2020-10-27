@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Neu To do's</title>
+  <title>Neu To-Do's</title>
   <meta name="description" content="A browser-based to-do's app">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -12,9 +12,9 @@
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
-  <link rel="manifest" href="">
-  <link rel="apple-touch-icon" href="">
-  <!-- Place favicon.ico in the root directory -->
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -28,7 +28,23 @@
 
 <body>
 
+  <noscript>
+    <div class="btn-warning text-center p-1">
+      <h1>JavaScript Disabled!</h1>
+      <p>Neu To-Do's uses JavaScript to manipulate the DOM, data, and to add functionality to this web app. Please
+        enable JavaScript if you wish to use this applications.</p>
+    </div>
+  </noscript>
+
   <header class="container jumbotron text-center">
+    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+         width="92px" height="92px" viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve">
+      <path id="XMLID_1973_" d="M25,17.8V5c0-2.8,2.2-5,5-5s5,2.2,5,5v12.8c0,2.8-2.2,5-5,5S25,20.6,25,17.8z M62,22.8c2.8,0,5-2.2,5-5V5
+        c0-2.8-2.2-5-5-5s-5,2.2-5,5v12.8C57,20.6,59.2,22.8,62,22.8z M28.2,40h35.5c2.2,0,4-1.8,4-4s-1.8-4-4-4H28.2c-2.2,0-4,1.8-4,4
+        S26,40,28.2,40z M84,7h-8.3c-2.2,0-4,1.8-4,4s1.8,4,4,4H80v68H12V15h4.3c2.2,0,4-1.8,4-4s-1.8-4-4-4H8c-2.2,0-4,2.2-4,4.4V87
+        c0,2.2,1.8,4,4,4h76c2.2,0,4-1.8,4-4V11.4C88,9.2,86.2,7,84,7z M42.7,15h6.6c2.2,0,4-1.8,4-4s-1.8-4-4-4h-6.6c-2.2,0-4,1.8-4,4
+        S40.5,15,42.7,15z M28.2,58h35.5c2.2,0,4-1.8,4-4s-1.8-4-4-4H28.2c-2.2,0-4,1.8-4,4S26,58,28.2,58z"/>
+    </svg>
     <h1 class="mb-0">Neu To-Do's</h1>
     <span class="font-italic">A simple browser-base To-Do app</span>
   </header>
@@ -36,7 +52,7 @@
   <main>
     <section class="container">
 
-      <div class="inputs d-flex flex-column flex-row justify-content-center">
+      <div class="inputs d-flex flex-column flex-row justify-content-center pt-3">
 
         <div class="d-flex flex-column align-items-end align-items-center position-relative">
           <label class="m-1">
@@ -47,7 +63,7 @@
           </label>
         </div>
 
-        <span class="divider invisible">|</span>
+        <span class="divider invisible">￨</span>
 
         <form id="add-todo" class="form-group d-flex flex-column flex-row">
           <label class="m-1">
@@ -64,15 +80,44 @@
 
     <section>
       <details class="container">
-        <summary class="text-center outline-none pb-2">About</summary>
+        <summary class="text-center outline-none pb-2">How to use</summary>
         <div class="jumbotron">
+          <h2 class="text-center">How to use</h2>
+          <ul>
+            <li class="py-3">Enter your to-do into the text field "Enter your To-Do here!"
+              <img class="img-fluid rounded" src="/img/todo-field.png" alt="Todo">
+            </li>
+            <li class="py-3">Either press "Enter" or click "+" to add the To-Do to the list.
+              <img class="img-fluid rounded" src="/img/add-btn.png" alt="Add">
+            </li>
+            <li class="py-3">You can use the "Search" field to filter To-Do's. As you type the To-Do list will be updated.
+              <img class="img-fluid rounded" src="/img/search-field.png" alt="Search">
+            </li>
+            <li class="py-3">You can mark To-Do's as completed.
+              <img class="img-fluid rounded" src="/img/completed.png" alt="Completed">
+            </li>
+            <li class="py-3">You can remove To-Do's as well.
+              <img class="img-fluid rounded" src="/img/remove.png" alt="Remove">
+            </li>
+          </ul>
+          <h2 class="text-center">About</h2>
           <p>Neu To-Do's uses local storage to store data. This data is local on your machine within your browser. This tool
           does not track, or use said data anywhere outside of populating and manipulating your To-Do list.</p>
-          <p class="text-center">This project was built with web components.</p>
+          <p class="text-center">This project was built with HTML5, CSS3, JavaScript and uses
+            <a href="https://github.com/uuidjs/uuid">UUID</a> to generated unique ID's.</p>
+          <div class="text-center">
+            <a href="https://github.com/krabfish/neu-to-dos" title="Github">
+              <svg height="32px" width="32px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            </a>
+          </div>
         </div>
       </details>
     </section>
   </main>
+
+  <footer class="text-center">
+    <p class="text-black-50">Created by Michael Neumann © 2020</p>
+  </footer>
 
   <script src="js/plugins.js"></script>
   <script src="js/main.js" type="module"></script>

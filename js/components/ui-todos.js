@@ -6,8 +6,8 @@ template.innerHTML = `
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 4rem 0;
+    padding: 2rem 0;
+    width: 100%;
   }
   h2 {
     animation: pop 1s ease-in-out;
@@ -46,21 +46,28 @@ template.innerHTML = `
     text-decoration: line-through !important;
   }
   .remove-btn {
-    background-color: #333333;
-    border-radius: 25px;
-    color: #FFFFFF;
-    margin-left: 1rem;
-    padding: 1px 8px;
+    align-items: center;
+    background-color: transparent !important;
+    display: flex;
+    padding: 0 0.5rem;
+    position: absolute;
+    top: 8px;
+    right: 0;
   }
-  .remove-btn:hover {
-    background-color: red;
+  .remove-btn:hover svg {
+    fill: red;
   }
   .todo-item {
-    border: 1px solid #333333;
+    background-color: whitesmoke;
     border-radius: 4px;
     flex-direction: row;
-    margin: 0.5rem;
+    margin: 0.2rem 0;
     padding: 0.5rem;
+    position: relative;
+    text-align: left;
+  }
+  .todo-item:nth-child(odd) {
+    background-color: #e9ecef;
   }
   @keyframes pop {
     from { transform: scale(1); }
@@ -100,6 +107,18 @@ class UiTodos extends HTMLElement {
       this._render()
     })
     this.search.addEventListener('keyup', (e) => {
+      this.filters.searchText = e.target.value
+      this._render()
+    })
+  }
+
+  disconnectedCallback () {
+    this.addBtn.removeEventListener('submit', this._create.bind(this))
+    this.hideBtn.removeEventListener('change', (e) => {
+      this.filters.hideCompleted = e.target.checked
+      this._render()
+    })
+    this.search.removeEventListener('keyup', (e) => {
       this.filters.searchText = e.target.value
       this._render()
     })
@@ -197,7 +216,10 @@ class UiTodos extends HTMLElement {
 
       const removeButton = document.createElement('button')
       removeButton.classList.add('remove-btn')
-      removeButton.innerHTML = '&times;'
+      // removeButton.innerHTML = '&times;'
+
+      removeButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1C4.58 1 1 4.58 1 9s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4 10.87L11.87 13 9 10.13 6.13 13 5 11.87 7.87 9 5 6.13 6.13 5 9 7.87 11.87 5 13 6.13 10.13 9 13 11.87z"/></svg>`
+
       removeButton.addEventListener('click', () => {
         this._remove(todo.id)
         this._set()
