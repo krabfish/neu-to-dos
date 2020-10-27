@@ -87,9 +87,9 @@ class UiTodos extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
     this.list = this.shadowRoot.querySelector('div')
-    this.addBtn = document.getElementById('add-todo')
+    this.addBtn = document.querySelector('.add-todo')
     this.hideBtn = document.querySelector('.hide-completed')
-    this.search = document.querySelector('#search-text')
+    this.search = document.querySelector('.search-text')
 
 
     this.todos = this._get()
@@ -107,18 +107,6 @@ class UiTodos extends HTMLElement {
       this._render()
     })
     this.search.addEventListener('keyup', (e) => {
-      this.filters.searchText = e.target.value
-      this._render()
-    })
-  }
-
-  disconnectedCallback () {
-    this.addBtn.removeEventListener('submit', this._create.bind(this))
-    this.hideBtn.removeEventListener('change', (e) => {
-      this.filters.hideCompleted = e.target.checked
-      this._render()
-    })
-    this.search.removeEventListener('keyup', (e) => {
       this.filters.searchText = e.target.value
       this._render()
     })
@@ -159,7 +147,6 @@ class UiTodos extends HTMLElement {
     }
   }
 
-  // Toggle the completed value for a given todo
   _toggle (id) {
     const todo = this.todos.find(function (todo) {
       return todo.id === id
@@ -173,7 +160,6 @@ class UiTodos extends HTMLElement {
   _render () {
     this.todos.length !== 0 ? this.list.querySelector('h2').style.display = 'none'
       : this.list.querySelector('h2').style.display = 'block'
-
 
     this._dump()
 
@@ -208,7 +194,7 @@ class UiTodos extends HTMLElement {
       const checkbox = document.createElement('input')
       checkbox.setAttribute('type', 'checkbox')
       checkbox.checked = todo.completed
-      checkbox.addEventListener('change', (e) => {
+      checkbox.addEventListener('change', () => {
         this._toggle(todo.id)
         this._set()
         this._render()
@@ -216,8 +202,6 @@ class UiTodos extends HTMLElement {
 
       const removeButton = document.createElement('button')
       removeButton.classList.add('remove-btn')
-      // removeButton.innerHTML = '&times;'
-
       removeButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1C4.58 1 1 4.58 1 9s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4 10.87L11.87 13 9 10.13 6.13 13 5 11.87 7.87 9 5 6.13 6.13 5 9 7.87 11.87 5 13 6.13 10.13 9 13 11.87z"/></svg>`
 
       removeButton.addEventListener('click', () => {
