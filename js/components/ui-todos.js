@@ -197,7 +197,6 @@ class UiTodos extends HTMLElement {
       checkbox.addEventListener('change', () => {
         this._toggle(todo.id)
         this._set()
-        this._render()
       })
 
       const removeButton = document.createElement('button')

@@ -50,6 +50,14 @@ summary {
   width: 100%;
 }
 
+.to-top {
+  bottom: 2.5rem;
+  position: fixed;
+  opacity: 0;
+  right: 1rem;
+  transition: opacity 0.5s ease-in-out;
+}
+
 @media screen and (min-width: 36rem) {
   header {
     margin: 2rem 0;
