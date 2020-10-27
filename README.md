@@ -1,7 +1,7 @@
 # Neu To-Do's
 >A simple browser-base To-Do app
 
-![img](docs/screenshot.png)
+![img](img/screenshot.png)
 
 ## How to use
 - Enter your to-do into the text field "Enter your To-Do here!"
