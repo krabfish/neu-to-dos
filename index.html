@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Neu To do's</title>
+  <meta name="description" content="A browser-based to-do's app">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="">
+  <link rel="apple-touch-icon" href="">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <header class="container jumbotron text-center">
+    <h1 class="mb-0">Neu To-Do's</h1>
+    <span class="font-italic">A simple browser-base To-Do app</span>
+  </header>
+
+  <main>
+    <section class="container">
+
+      <div class="inputs d-flex flex-column flex-row justify-content-center">
+
+        <div class="d-flex flex-column align-items-end align-items-center position-relative">
+          <label class="m-1">
+            <input class="form-control" id="search-text" type="text" placeholder="Search">
+          </label>
+          <label class="hide-completed">Hide Completed
+            <input type="checkbox">
+          </label>
+        </div>
+
+        <span class="divider invisible">|</span>
+
+        <form id="add-todo" class="form-group d-flex flex-column flex-row">
+          <label class="m-1">
+            <input class="form-control" type="text" name="text" placeholder="Enter new To-Do here!" required>
+          </label>
+          <button class="btn btn-primary m-1">&plus;</button>
+        </form>
+
+      </div>
+
+      <ui-todos></ui-todos>
+
+    </section>
+
+    <section>
+      <details class="container">
+        <summary class="text-center outline-none pb-2">About</summary>
+        <div class="jumbotron">
+          <p>Neu To-Do's uses local storage to store data. This data is local on your machine within your browser. This tool
+          does not track, or use said data anywhere outside of populating and manipulating your To-Do list.</p>
+          <p class="text-center">This project was built with web components.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js" type="module"></script>
+</body>
+
+</html>
